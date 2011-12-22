@@ -1,5 +1,5 @@
-%define version	1.0.0
-%define release	1
+%define version	1.0.1
+%define release	2
 %define name	urpm-tools
 
 
@@ -17,6 +17,7 @@ Requires:	urpmi	       >= 6.68
 Requires:	python-rpm     >= 5.3
 Requires:	libxml2-python >= 2.7
 Requires:       gzip
+Requires:	python-rpmutils = %{version}
 Conflicts:	yum
 
 %description
@@ -24,6 +25,15 @@ Conflicts:	yum
 They make URPM-based repositories easier and more powerful to use.
 These tools include: urpm-downloader, urpm-package-cleanup, 
 urpm-repoclosure, urpm-repodiff, urpm-repomanage
+
+%package -n	python-rpmutils
+Group:		Development/Python
+Summary:	Auxiliary modules to work with rpm
+Provides:	python-rpmutils = %{version}-%{release}
+
+%description -n python-rpmutils
+%{name} contains some useful modules that are used by %{name}. 
+Mostly taken from yum.
 
 %prep
 %setup -q -n %{name}
@@ -47,16 +57,19 @@ rm -rf %{buildroot}
 %{_bindir}/urpm-repodiff
 %{_bindir}/urpm-repomanage
 
-%{py_puresitedir}/urpmmisc.py
-%{py_puresitedir}/rpmUtils/*.py
-%{py_puresitedir}/rpmUtils/*.pyc
-%dir %{py_puresitedir}/rpmUtils
-%dir %{py_puresitedir}/rpmUtils/tests
-%{py_puresitedir}/rpmUtils/tests/*.py
-
 %{_mandir}/man1/urpm-downloader.1.xz
 %{_mandir}/man1/urpm-package-cleanup.1.xz
 %{_mandir}/man1/urpm-repoclosure.1.xz
 %{_mandir}/man1/urpm-repodiff.1.xz
 %{_mandir}/man1/urpm-repomanage.1.xz
 %doc COPYING
+
+%files -n python-rpmutils
+%defattr(-,root,root,-)
+%{py_puresitedir}/urpmmisc.py
+%{py_puresitedir}/rpmUtils/*.py
+%{py_puresitedir}/rpmUtils/*.pyc
+%dir %{py_puresitedir}/rpmUtils
+%dir %{py_puresitedir}/rpmUtils/tests
+%{py_puresitedir}/rpmUtils/tests/*.py
+%doc rpmUtils/COPYING
