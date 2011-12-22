@@ -1,7 +1,5 @@
-
 %define version	1.0.0
 %define release	1
-
 %define name	urpm-tools
 
 
@@ -13,6 +11,7 @@ Group:          System/Configuration/Packaging
 License:        LGPLv2
 URL:            http://wiki.rosalab.ru/index.php/Urpm-tools
 Source0:        %{name}-%{version}-%{release}.tar.gz
+BuildArch:	noarch
 
 Requires:	urpmi	       >= 6.68
 Requires:	python-rpm     >= 5.3
@@ -32,10 +31,11 @@ urpm-repoclosure, urpm-repodiff, urpm-repomanage
 #%build
 
 %install
+rm -rf %{buildroot}
 make install DESTDIR=$RPM_BUILD_ROOT
 
-#%clean
-
+%clean
+rm -rf %{buildroot}
 
 
 %files
