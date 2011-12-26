@@ -10,7 +10,7 @@ Summary:        Utilities that help to work with URPM-based repositories
 Group:          System/Configuration/Packaging
 License:        LGPLv2
 URL:            http://wiki.rosalab.ru/index.php/Urpm-tools
-Source0:        %{name}-%{version}-%{release}.tar.gz
+Source0:        %{name}-%{version}.tar.gz
 BuildArch:	noarch
 
 Requires:	urpmi	       >= 6.68
