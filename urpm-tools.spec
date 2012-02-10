@@ -1,5 +1,5 @@
 %define version	1.2.1
-%define release	7
+%define release	8
 %define name	urpm-tools
 
 
