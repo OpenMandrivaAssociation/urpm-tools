@@ -1,14 +1,9 @@
-%define version	1.2.1
-%define release	8
-%define name	urpm-tools
-
-
-Name:           %name
-Version:        %version
-Release:        %release
+Name:           urpm-tools
+Version:        1.2.2
+Release:        0
 Summary:        Utilities that help to work with URPM-based repositories
 Group:          System/Configuration/Packaging
-License:        LGPLv2
+License:        GPLv2
 URL:            http://wiki.rosalab.ru/index.php/Urpm-tools
 Source0:        %{name}-%{version}.tar.gz
 BuildArch:	noarch
@@ -21,7 +16,7 @@ Requires:       gzip
 Requires:	python-rpm5utils = %{version}
 
 %description
-%{name} is a collection of utilities for URPM-base repositories. 
+%{name} is a collection of utilities for URPM-based repositories. 
 They make URPM-based repositories easier and more powerful to use.
 These tools include: urpm-downloader, urpm-package-cleanup, 
 urpm-repoclosure, urpm-repodiff, urpm-repomanage, urpm-repograph
@@ -30,7 +25,7 @@ urpm-repoclosure, urpm-repodiff, urpm-repomanage, urpm-repograph
 Group:		Development/Python
 Summary:	Auxiliary modules to work with rpm
 Provides:	python-rpm5utils = %{version}-%{release}
-Obsoletes:	python-rpmutils
+#Obsoletes:	python-rpmutils
 
 %description -n python-rpm5utils
 %{name} contains some useful modules that are used by %{name}. 
