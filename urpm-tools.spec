@@ -1,6 +1,6 @@
 Name:           urpm-tools
 Version:        1.2.2
-Release:        0
+Release:        1
 Summary:        Utilities that help to work with URPM-based repositories
 Group:          System/Configuration/Packaging
 License:        GPLv2
@@ -25,7 +25,6 @@ urpm-repoclosure, urpm-repodiff, urpm-repomanage, urpm-repograph
 Group:		Development/Python
 Summary:	Auxiliary modules to work with rpm
 Provides:	python-rpm5utils = %{version}-%{release}
-#Obsoletes:	python-rpmutils
 
 %description -n python-rpm5utils
 %{name} contains some useful modules that are used by %{name}. 
@@ -34,15 +33,12 @@ Mostly taken from yum.
 %prep
 %setup -q -n %{name}-%{version}
 
-#%build
-
 %install
 rm -rf %{buildroot}
 make install DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf %{buildroot}
-
 
 %files
 %defattr(-,root,root,-)
@@ -63,10 +59,19 @@ rm -rf %{buildroot}
 
 %files -n python-rpm5utils
 %defattr(-,root,root,-)
+%dir %{py_puresitedir}/rpm5utils
+%dir %{py_puresitedir}/rpm5utils/tests
+%dir %{py_puresitedir}/rpm5utils/urpmgraphs
+%dir %{py_puresitedir}/rpm5utils/urpmgraphs/algorithms
+%dir %{py_puresitedir}/rpm5utils/urpmgraphs/algorithms/components
+%dir %{py_puresitedir}/rpm5utils/urpmgraphs/classes
+
 %{py_puresitedir}/urpmmisc.py
-%{py_puresitedir}/rpm5Utils/*.py
-%{py_puresitedir}/rpm5Utils/*.pyc
-%dir %{py_puresitedir}/rpm5Utils
-%dir %{py_puresitedir}/rpm5Utils/tests
-%{py_puresitedir}/rpm5Utils/tests/*.py
-%doc rpm5Utils/COPYING
+%{py_puresitedir}/rpm5utils/*.py*
+%{py_puresitedir}/rpm5utils/tests/*.py*
+%{py_puresitedir}/rpm5utils/urpmgraphs/*.py*
+%{py_puresitedir}/rpm5utils/urpmgraphs/algorithms/*.py*
+%{py_puresitedir}/rpm5utils/urpmgraphs/algorithms/components/*.py*
+%{py_puresitedir}/rpm5utils/urpmgraphs/classes/*.py*
+
+%doc rpm5utils/COPYING
