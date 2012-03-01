@@ -1,6 +1,6 @@
 Name:           urpm-tools
-Version:        1.2.2
-Release:        1
+Version:        2.0
+Release:        0
 Summary:        Utilities that help to work with URPM-based repositories
 Group:          System/Configuration/Packaging
 License:        GPLv2
@@ -19,7 +19,8 @@ Requires:	python-rpm5utils = %{version}
 %{name} is a collection of utilities for URPM-based repositories. 
 They make URPM-based repositories easier and more powerful to use.
 These tools include: urpm-downloader, urpm-package-cleanup, 
-urpm-repoclosure, urpm-repodiff, urpm-repomanage, urpm-repograph
+urpm-repoclosure, urpm-repodiff, urpm-repomanage, urpm-repograph,
+urpm-reposync
 
 %package -n	python-rpm5utils
 Group:		Development/Python
@@ -49,12 +50,14 @@ rm -rf %{buildroot}
 %{_bindir}/urpm-repodiff
 %{_bindir}/urpm-repomanage
 %{_bindir}/urpm-repograph
+%{_bindir}/urpm-reposync
 %{_mandir}/man1/urpm-downloader.1.xz
 %{_mandir}/man1/urpm-package-cleanup.1.xz
 %{_mandir}/man1/urpm-repoclosure.1.xz
 %{_mandir}/man1/urpm-repodiff.1.xz
 %{_mandir}/man1/urpm-repomanage.1.xz
 %{_mandir}/man1/urpm-repograph.1.xz
+%{_mandir}/man1/urpm-reposync.1.xz
 %doc COPYING
 
 %files -n python-rpm5utils
