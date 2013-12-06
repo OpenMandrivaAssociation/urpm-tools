@@ -1,6 +1,6 @@
 Name:           urpm-tools
 Version:        2.2.4
-Release:        2
+Release:        3
 Summary:        Utilities that help to work with URPM-based repositories
 Group:          System/Configuration/Packaging
 License:        GPLv2
