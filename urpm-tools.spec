@@ -32,7 +32,7 @@ Provides:	python-rpm5utils = %{version}-%{release}
 Mostly taken from yum.
 
 %prep
-%setup -q
+%setup -qn %{name}
 
 %install
 %makeinstall_std
