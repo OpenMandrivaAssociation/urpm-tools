@@ -1,6 +1,6 @@
 Name:           urpm-tools
-Version:        2.2.4
-Release:        5
+Version:        2.2.6
+Release:        1
 Summary:        Utilities that help to work with URPM-based repositories
 Group:          System/Configuration/Packaging
 License:        GPLv2
@@ -28,40 +28,23 @@ Summary:	Auxiliary modules to work with rpm
 Provides:	python-rpm5utils = %{version}-%{release}
 
 %description -n python-rpm5utils
-%{name} contains some useful modules that are used by %{name}. 
+%{name} contains some useful modules that are used by %{name}.
 Mostly taken from yum.
 
 %prep
-%setup -q -n %{name}
+%setup -q
 
 %install
-rm -rf %{buildroot}
-make install DESTDIR=$RPM_BUILD_ROOT
+%makeinstall_std
 %find_lang %{name}
 
 %files -f %{name}.lang
-%defattr(-,root,root,-)
+%{_bindir}/urpm*
+%{_mandir}/man1/*
 
-%{_bindir}/urpm-downloader
-%{_bindir}/urpm-package-cleanup
-%{_bindir}/urpm-repoclosure
-%{_bindir}/urpm-repodiff
-%{_bindir}/urpm-repomanage
-%{_bindir}/urpm-repograph
-%{_bindir}/urpm-reposync
-%{_mandir}/man1/urpm-downloader.1.xz
-%{_mandir}/man1/urpm-package-cleanup.1.xz
-%{_mandir}/man1/urpm-repoclosure.1.xz
-%{_mandir}/man1/urpm-repodiff.1.xz
-%{_mandir}/man1/urpm-repomanage.1.xz
-%{_mandir}/man1/urpm-repograph.1.xz
-%{_mandir}/man1/urpm-reposync.1.xz
-
-#%{_datadir}/locale/*/LC_MESSAGES/urpm-tools.mo
 %doc COPYING
 
 %files -n python-rpm5utils
-%defattr(-,root,root,-)
 %dir %{py_puresitedir}/rpm5utils
 %dir %{py_puresitedir}/rpm5utils/tests
 %dir %{py_puresitedir}/rpm5utils/urpmgraphs

@@ -1,4 +1,6 @@
 removed_sources:
   urpm-tools-2.2.3.tar.gz: aa06a753da3c1f8d945a50c8c6fb9621fe99c804
-sources:
   urpm-tools-2.2.4.tar.gz: 92ff7be741c593107d265415320f6c2b53d1ef5a
+  urpm-tools-2.2.5.tar.gz: 6025835c5f203c48cea9a73f4ac13306408d0edc
+sources:
+  urpm-tools-2.2.6.tar.gz: d5575e37b33e67642531a0f6372d7f707562ce46
