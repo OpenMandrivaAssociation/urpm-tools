@@ -1,0 +1,48 @@
+--- urpm-tools/Makefile.0000~	2013-04-22 12:55:02.000000000 +0200
++++ urpm-tools/Makefile	2014-06-19 11:09:44.007653094 +0200
+@@ -3,10 +3,10 @@ PKGNAME = urpm-tools
+ PYTHON_UTILS = urpm-downloader urpm-package-cleanup urpm-repodiff urpm-repomanage urpm-repograph urpm-reposync
+ PERL_UTILS = urpm-repoclosure
+ 
+-PYTHON=python
++PYTHON=python2
+ PYFILES = $(wildcard *.py)
+-PYVER := $(shell $(PYTHON) -c 'import sys; print "%.3s" %(sys.version)')
+-PYSYSDIR := $(shell $(PYTHON) -c 'import sys; print sys.prefix')
++PYVER := $(shell $(PYTHON) -c 'import sys; print("%.3s" %(sys.version))')
++PYSYSDIR := $(shell $(PYTHON) -c 'import sys; print(sys.prefix)')
+ PYLIBDIR = $(PYSYSDIR)/lib/python$(PYVER)
+ PKGDIR = $(PYLIBDIR)/site-packages
+ SHELL=/bin/bash
+@@ -36,8 +36,8 @@ install:
+ 	install -m 644 urpmmisc.py $(DESTDIR)/$(PKGDIR)/urpmmisc.py;
+ 
+ 
+-	for d in `python localizer.py --list`; do\
++	for d in `$(PYTHON) localizer.py --list`; do\
+              mkdir -p $(DESTDIR)/usr/share/locale/$$d/LC_MESSAGES;\
+              install -m 644 locale/$$d/LC_MESSAGES/urpm-tools.mo $(DESTDIR)/usr/share/locale/$$d/LC_MESSAGES/urpm-tools.mo;\
+         done
+-	
+\ No newline at end of file
++	
+--- urpm-tools/rpm5utils/Makefile.0000~	2014-06-19 11:09:09.629652984 +0200
++++ urpm-tools/rpm5utils/Makefile	2014-06-19 11:09:29.591653048 +0200
+@@ -1,7 +1,7 @@
+-PYTHON=python
++PYTHON=python2
+ PACKAGE = $(shell basename `pwd`)
+-PYVER := $(shell $(PYTHON) -c 'import sys; print "%.3s" %(sys.version)')
+-PYSYSDIR := $(shell $(PYTHON) -c 'import sys; print sys.prefix')
++PYVER := $(shell $(PYTHON) -c 'import sys; print("%.3s" %(sys.version))')
++PYSYSDIR := $(shell $(PYTHON) -c 'import sys; print(sys.prefix)')
+ PYLIBDIR = $(PYSYSDIR)/lib/python$(PYVER)
+ SITEDIR = $(PYLIBDIR)/site-packages
+ PKGDIR = $(SITEDIR)/$(PACKAGE)
+@@ -24,4 +24,4 @@ install:
+ 	find $(DESTDIR)/$(PKGDIR) -type d |xargs -l chmod 775 $1
+ 
+ 	#compile python sources
+-	python -m compileall $(DESTDIR)/$(PKGDIR)
+\ No newline at end of file
++	$(PYTHON) -m compileall $(DESTDIR)/$(PKGDIR)
