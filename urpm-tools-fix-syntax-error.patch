@@ -1,0 +1,11 @@
+--- urpm-tools/urpm-repodiff.py.omv~	2014-06-23 10:14:20.884182424 +0200
++++ urpm-tools/urpm-repodiff.py	2014-06-23 10:14:31.410182458 +0200
+@@ -219,7 +219,7 @@ def CheckOutput(arg):
+                 except IOError:
+                     print _("Error: File %s cannot be created") % file_output
+                 arg.output = None
+-                    exit_proc(arg)
++                exit_proc(arg)
+             else:
+                 print _("Error: Path %s does not exist.") % dirname
+                 arg.output = None

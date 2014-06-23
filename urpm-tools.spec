@@ -1,12 +1,13 @@
 Name:           urpm-tools
 Version:        2.2.6
-Release:        3
+Release:        4
 Summary:        Utilities that help to work with URPM-based repositories
 Group:          System/Configuration/Packaging
 License:        GPLv2
 URL:            http://wiki.rosalab.ru/index.php/Urpm-tools
 Source0:        %{name}-%{version}.tar.gz
 Patch0:		urpm-tools-use-python2.patch
+Patch1:		urpm-tools-fix-syntax-error.patch
 BuildArch:	noarch
 
 Requires:	urpmi	       >= 6.68
@@ -34,7 +35,7 @@ Mostly taken from yum.
 %prep
 %setup -qn %{name}
 %apply_patches
-sed -i -e 's,%{_bindir}/python,%{_bindir}/python2,g' *.py
+sed -i -e 's,%{_bindir}/python$,%{_bindir}/python2,g;s,%{_bindir}/python ,%{_bindir}/python2 ,g' *.py
 
 %install
 %makeinstall_std
