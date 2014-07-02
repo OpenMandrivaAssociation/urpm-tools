@@ -56,7 +56,7 @@ sed -i -e 's,%{_bindir}/python$,%{_bindir}/python2,g;s,%{_bindir}/python ,%{_bin
 %dir %{py2_puresitedir}/rpm5utils/urpmgraphs/classes
 
 %{py2_puresitedir}/urpmmisc.py
-%{py2_puresitedir}/rpm5utils/*.py*
+#%{py2_puresitedir}/rpm5utils/*.py*
 %{py2_puresitedir}/rpm5utils/tests/*.py*
 %{py2_puresitedir}/rpm5utils/urpmgraphs/*.py*
 %{py2_puresitedir}/rpm5utils/urpmgraphs/algorithms/*.py*
