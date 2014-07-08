@@ -48,19 +48,19 @@ sed -i -e 's,%{_bindir}/python$,%{_bindir}/python2,g;s,%{_bindir}/python ,%{_bin
 %doc COPYING
 
 %files -n python-rpm5utils
-%dir %{py2_puresitedir}/rpm5utils
-%dir %{py2_puresitedir}/rpm5utils/tests
-%dir %{py2_puresitedir}/rpm5utils/urpmgraphs
-%dir %{py2_puresitedir}/rpm5utils/urpmgraphs/algorithms
-%dir %{py2_puresitedir}/rpm5utils/urpmgraphs/algorithms/components
-%dir %{py2_puresitedir}/rpm5utils/urpmgraphs/classes
+%dir %{python2_sitelib}/rpm5utils
+%dir %{python2_sitelib}/rpm5utils/tests
+%dir %{python2_sitelib}/rpm5utils/urpmgraphs
+%dir %{python2_sitelib}/rpm5utils/urpmgraphs/algorithms
+%dir %{python2_sitelib}/rpm5utils/urpmgraphs/algorithms/components
+%dir %{python2_sitelib}/rpm5utils/urpmgraphs/classes
 
-%{py2_puresitedir}/urpmmisc.py
-#%{py2_puresitedir}/rpm5utils/*.py*
-%{py2_puresitedir}/rpm5utils/tests/*.py*
-%{py2_puresitedir}/rpm5utils/urpmgraphs/*.py*
-%{py2_puresitedir}/rpm5utils/urpmgraphs/algorithms/*.py*
-%{py2_puresitedir}/rpm5utils/urpmgraphs/algorithms/components/*.py*
-%{py2_puresitedir}/rpm5utils/urpmgraphs/classes/*.py*
+%{python2_sitelib}/urpmmisc.py
+%{python2_sitelib}/rpm5utils/*.py*
+%{python2_sitelib}/rpm5utils/tests/*.py*
+%{python2_sitelib}/rpm5utils/urpmgraphs/*.py*
+%{python2_sitelib}/rpm5utils/urpmgraphs/algorithms/*.py*
+%{python2_sitelib}/rpm5utils/urpmgraphs/algorithms/components/*.py*
+%{python2_sitelib}/rpm5utils/urpmgraphs/classes/*.py*
 
 %doc rpm5utils/COPYING
