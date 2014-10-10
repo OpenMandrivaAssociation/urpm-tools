@@ -1,6 +1,6 @@
 Name:           urpm-tools
 Version:        2.2.6
-Release:        5
+Release:        6
 Summary:        Utilities that help to work with URPM-based repositories
 Group:          System/Configuration/Packaging
 License:        GPLv2
@@ -13,7 +13,7 @@ BuildArch:	noarch
 Requires:	urpmi	       >= 6.68
 Requires:	python-rpm     >= 5.3
 Requires:	libxml2-python >= 2.7
-Requires:       gzip
+Requires:	gzip
 Requires:	python-rpm5utils = %{EVRD}
 
 %description
