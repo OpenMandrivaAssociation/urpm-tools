@@ -7,7 +7,6 @@ License:	GPLv2
 URL:		http://wiki.rosalab.ru/index.php/Urpm-tools
 Source0:	https://abf.io/soft/%{name}/archive/%{name}-%{version}.tar.gz
 Patch0:		urpm-tools-use-python2.patch
-Patch1:		urpm-tools-fix-syntax-error.patch
 BuildArch:	noarch
 
 Requires:	urpmi	       >= 6.68
@@ -23,7 +22,7 @@ These tools include: urpm-downloader, urpm-package-cleanup,
 urpm-repoclosure, urpm-repodiff, urpm-repomanage, urpm-repograph,
 urpm-reposync
 
-%package -n	python-rpm5utils
+%package -n python-rpm5utils
 Group:		Development/Python
 Summary:	Auxiliary modules to work with rpm
 Provides:	python-rpm5utils = %{EVRD}
@@ -33,7 +32,7 @@ Provides:	python-rpm5utils = %{EVRD}
 Mostly taken from yum.
 
 %prep
-%setup -qn %{name}
+%setup -q
 %apply_patches
 sed -i -e 's,%{_bindir}/python$,%{_bindir}/python2,g;s,%{_bindir}/python ,%{_bindir}/python2 ,g' *.py
 
