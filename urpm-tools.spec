@@ -1,11 +1,11 @@
-Name:           urpm-tools
-Version:        2.2.6
-Release:        8
-Summary:        Utilities that help to work with URPM-based repositories
-Group:          System/Configuration/Packaging
-License:        GPLv2
-URL:            http://wiki.rosalab.ru/index.php/Urpm-tools
-Source0:        %{name}-%{version}.tar.gz
+Name:		urpm-tools
+Version:	2.3.3
+Release:	1
+Summary:	Utilities that help to work with URPM-based repositories
+Group:		System/Configuration/Packaging
+License:	GPLv2
+URL:		http://wiki.rosalab.ru/index.php/Urpm-tools
+Source0:	https://abf.io/soft/%{name}/archive/%{name}-%{version}.tar.gz
 Patch0:		urpm-tools-use-python2.patch
 Patch1:		urpm-tools-fix-syntax-error.patch
 BuildArch:	noarch
