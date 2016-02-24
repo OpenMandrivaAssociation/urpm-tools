@@ -1,0 +1,13 @@
+diff --git a/urpm-repoclosure.pl b/urpm-repoclosure.pl
+index c70c670..e4d06ed 100755
+--- a/urpm-repoclosure.pl
++++ b/urpm-repoclosure.pl
+@@ -786,7 +786,7 @@ sub downloadFile($$)
+     }
+     
+     my $DownloadTo = $TMP_DIR."/extract/".get_filename($Url);
+-    $DownloadTo=~s/\.cz/\.gz/g; # cz == gz
++    $DownloadTo=~s/\.cz/\.xz/g; # cz == xz
+     my $Dir = get_dirname($DownloadTo);
+     mkdir($Dir);
+     system("wget -U '' --no-check-certificate \"$Url\" --connect-timeout=5 --tries=1 --output-document=\"$DownloadTo\" >/dev/null 2>&1");

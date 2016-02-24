@@ -1,12 +1,13 @@
 Name:		urpm-tools
 Version:	2.3.3
-Release:	1
+Release:	2
 Summary:	Utilities that help to work with URPM-based repositories
 Group:		System/Configuration/Packaging
 License:	GPLv2
 URL:		http://wiki.rosalab.ru/index.php/Urpm-tools
 Source0:	https://abf.io/soft/%{name}/archive/%{name}-%{version}.tar.gz
 Patch0:		urpm-tools-use-python2.patch
+Patch1:		cz-is-xz-cooker.patch
 BuildArch:	noarch
 
 Requires:	urpmi	       >= 6.68
