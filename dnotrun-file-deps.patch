@@ -1,0 +1,12 @@
+diff --git a/urpm-repoclosure.pl b/urpm-repoclosure.pl
+index a1bc1c2..be99b79 100755
+--- a/urpm-repoclosure.pl
++++ b/urpm-repoclosure.pl
+@@ -1584,7 +1584,6 @@ sub checkProfile()
+         if($Info{"info"} and $Info{"arch"} ne "SRPMS") {
+             $Cmd .= " --info=info.hdlists";
+         }
+-        $Cmd .= " --file-deps=file-deps.txt";
+         
+         print "Running $Cmd\n";
+         
