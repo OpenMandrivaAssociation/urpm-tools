@@ -1,0 +1,25 @@
+From b9911a08453d2b498524ef17220599a5fbdbd16d Mon Sep 17 00:00:00 2001
+From: Denis Silakov <dsilakov@virtuozzo.com>
+Date: Mon, 13 Mar 2017 12:59:53 +0300
+Subject: [PATCH] Do not fail on req/prov strings ending with '[=='
+
+---
+ rpm5utils/synthesis.py | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/rpm5utils/synthesis.py b/rpm5utils/synthesis.py
+index 4639ea0..c053cf1 100644
+--- a/rpm5utils/synthesis.py
++++ b/rpm5utils/synthesis.py
+@@ -132,6 +132,8 @@ class NEVR(object):
+     @staticmethod
+     def from_depstring(s, DE_toremove=None):
+         s = s.replace('[*]', '')
++        # We may have buggy strings ending with "[== "
++        s = re.sub(r"\[==\s*$", "", s)
+         
+         if DE_toremove:
+             res = NEVR.re_dep_ver.match(s)
+-- 
+1.7.11.3
+
