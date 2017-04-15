@@ -1,0 +1,39 @@
+From 3debe8129f0d6721ab5b6425b6bb7612a55d5982 Mon Sep 17 00:00:00 2001
+From: Denis Silakov <denis.silakov@rosalab.ru>
+Date: Tue, 5 Jan 2016 02:26:08 +0300
+Subject: [PATCH] Rename compareDEVR to compareEVRD to reflect actual usage
+
+---
+ rpm5utils/miscutils.py | 2 +-
+ urpm-repomanage.py     | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/rpm5utils/miscutils.py b/rpm5utils/miscutils.py
+index 165ec75..bf8e065 100644
+--- a/rpm5utils/miscutils.py
++++ b/rpm5utils/miscutils.py
+@@ -65,7 +65,7 @@ def compareEVR((e1, v1, r1), (e2, v2, r2)):
+     #~ print '%s, %s, %s vs %s, %s, %s = %s' % (e1, v1, r1, e2, v2, r2, rc)
+     return rc
+ 
+-def compareDEVR((d1, e1, v1, r1), (d2, e2, v2, r2)):
++def compareEVRD((e1, v1, r1, d1), (e2, v2, r2, d2)):
+     # return 1: a is newer than b
+     # 0: a and b are the same version
+     # -1: b is newer than a
+diff --git a/urpm-repomanage.py b/urpm-repomanage.py
+index 6137434..4598ad7 100755
+--- a/urpm-repomanage.py
++++ b/urpm-repomanage.py
+@@ -189,7 +189,7 @@ def main(args):
+         evrlist = pkgdict[natup]
+         if len(evrlist) > 1:
+             evrlist = urpmmisc.unique(evrlist)
+-            evrlist.sort(miscutils.compareDEVR)
++            evrlist.sort(miscutils.compareEVRD)
+             pkgdict[natup] = evrlist
+ 
+     del ts
+-- 
+1.7.11.3
+
