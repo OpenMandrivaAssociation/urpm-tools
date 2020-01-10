@@ -38,7 +38,7 @@ Mostly taken from yum.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 sed -i -e 's,%{_bindir}/python$,%{_bindir}/python2,g;s,%{_bindir}/python ,%{_bindir}/python2 ,g' *.py
 
 %install
