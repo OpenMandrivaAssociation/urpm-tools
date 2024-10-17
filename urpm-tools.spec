@@ -4,7 +4,7 @@ Release:	4
 Summary:	Utilities that help to work with URPM-based repositories
 Group:		System/Configuration/Packaging
 License:	GPLv2
-URL:		http://wiki.rosalab.ru/index.php/Urpm-tools
+URL:		https://wiki.rosalab.ru/index.php/Urpm-tools
 Source0:	https://abf.io/soft/%{name}/archive/%{name}-%{version}.tar.gz
 Patch0:		urpm-tools-use-python2.patch
 Patch1:		cz-is-xz-cooker.patch
